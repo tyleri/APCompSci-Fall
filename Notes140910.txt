@@ -34,3 +34,27 @@ Programming Tools
 		IDEs will contain a text editor as well as an
 		interpreter/compiler for the language.
 		IDEs are language specific
+
+Java Tools
+	javac
+		The Java compiler.
+		Basic operation:
+			$javac <java source>
+			$javac foo.java
+				Will create foo.class
+
+	java
+		The Java virtual machine (JVM)
+		The JVM allows your compiled java code to run on
+		any computer that has java. This is called being
+		cross-platform.
+		Each platform (computer hardware + OS) has a
+		specific JVM.
+		The JVM sits between your compiled java files and
+		your computer hardware, allowing any java compiled
+		file to run on any computer.
+
+		Basic operation
+			$ java <java binary>
+			$ java foo
+				Will only work if foo.class exists
