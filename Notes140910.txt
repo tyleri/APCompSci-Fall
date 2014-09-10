@@ -1,0 +1,36 @@
+Aim: What should be in our java toolbox?
+
+
+Do now: What text editors have you used (for programming or otherwise)?
+Discuss them with your neighbors.
+
+- gedit
+- notepad++
+- TextMate
+- Vim
+- TextWrangler
+- TextEdit
+- Notepad
+- Sublime
+- Komodo Edit
+- Emacs
+
+
+Programming Tools
+	Text Editor
+		Basic tool for writing code.
+		Programming text editors will have many useful
+		programming features, like syntax highlighting,
+		automatic tabbing, autocompletion, etc.
+
+
+	Compiler
+
+	Interpreter
+
+	IDE
+		Integrated Development Environment
+		Designed to handle all your programming needs.
+		IDEs will contain a text editor as well as an
+		interpreter/compiler for the language.
+		IDEs are language specific
