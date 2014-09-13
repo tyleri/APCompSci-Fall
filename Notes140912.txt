@@ -1,0 +1,41 @@
+Aim: What does a java program look like?
+
+Do Now: Log in, open a terminal and use emacs to write the
+	simple java program we say at the end of class
+	yesterday. Then try to compile and run it!
+
+In case you missed it:
+
+
+public class Hello {
+	public static void main(String[] args) {
+		System.out.println("Good News Everyone!");
+	}
+}
+
+Java Syntax Basics:
+	Java is case sensitive!
+
+	The class name must match the file name
+		ex. Hello.java mustt define a class called Hello
+
+	Regular statements must end in a ;
+
+	Code blocks are contained inside {}
+		{ replaces l at the end of a line that starts a code block
+
+		} sets the end of the code block
+
+		Examples of code blocks
+			Method bodies
+			Class bodies
+			Conditional (if, else...) statement results
+			Looping processes.
+
+	Comments
+		// can be used to comment a single line
+			ex. //This will print to the command line
+			System.out.println("boo"); //scary
+
+		/* .. */ can be used to comment multiple lines
+		

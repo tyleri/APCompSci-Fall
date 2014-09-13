@@ -1,0 +1,25 @@
+Aim: What does a java program look like?
+
+Do Now: Write a simple program that prints a message to the
+	screen in python. If you don't konw python, someone near you should,
+	find out who and talk to them.
+
+Answer: print 'hi'
+
+$ emacs -nw
+	This command opens emacs in the terminal
+
+Emacs commands:
+
+exit: 				C-x-c
+save: 				C-x-s
+save as: 			C-x-w
+find file (open): 		C-x-f
+stop current action: 		C-g
+search: 			C-s
+go to end of line: 		C-e
+go to beginning of line: 	C-a
+cut a line (kill): 		C-k
+paste: 				C-y
+undo: 				C-x u
+puts emacs in the background: 	C-z ($ fg will bring emacs)
