@@ -1,0 +1,46 @@
+Aim: What's all this about objects now?
+
+Do Now: Imagine a generic teacher, think about all the properties of a
+	teacher, write them down and break them into 2 categories:
+	1) Things the teacher does
+	2) Things the teacher knows
+
+Knows:
+	curriculum
+	students
+	grades
+	classroom layout
+	school location
+	schedule
+Does:
+	giveTests
+	giveNotes
+	pass or fail
+	talk
+	teach
+	giveInstructions
+	makeGreatJokes
+	calculateJokes
+	commute
+
+
+Object Oriented Programming (OOP)
+
+	An OOP program is a collection of objects
+
+	The properties of an object are defined in a class
+
+		A Class is a blueprint for all objects of the same type.
+
+		An object is a specific instance of a class
+
+		An object has 2 parts
+
+			1) Instance Variables: Things the object "knows"
+			2) Methods: Things the object "does"
+
+		Instance variables are declared at the top of a class,
+		before any methods.
+
+			You must declare any variables before you use it.
+			Variable declaration includes a name and type.

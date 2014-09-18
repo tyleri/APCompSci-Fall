@@ -1,0 +1,66 @@
+Java Class Anatomy
+
+	Protection
+		Access to classes, variables and methods is
+		is determined by their protection.
+
+		There are three kinds of protection:
+			public
+				Can be used by any java class
+
+			private
+				Can only used by the class itself
+
+			protected
+				Can be used by the class itself and all
+				subclasses
+
+		Identifiers
+			class, method and variable names are called
+			Identifiers
+
+			Can only be made of letters (upper and
+			lower case), numbers, _ and $
+
+			Cannot start with a number
+
+		Template java class
+			<class header> {
+
+				<instance variables>
+
+				<methods>
+			}
+
+			class header
+				<protection> class <classname>
+
+				classname
+					By convention, class anmes start with
+					a capital letter and use camel case
+						ex: Greeter
+						    MyAwesomeClass
+
+			instance variable
+				<protection> <type> <name>
+
+				name
+					By convention, variable names start
+					with a lower case letter and use camel
+					case
+						example: x
+						    myString
+
+
+				type
+					All variables must have an associated type
+
+					The type can either be a primitive
+					datatype (like int) or any java class
+
+						example: int x;
+						    Greeter g;
+
+			method header
+				<protection> <return type>
+				<name>(<parameters>)
