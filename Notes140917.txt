@@ -41,26 +41,79 @@ Java Class Anatomy
 						ex: Greeter
 						    MyAwesomeClass
 
-			instance variable
-				<protection> <type> <name>
+		instance variable
+			<protection> <type> <name>
 
-				name
-					By convention, variable names start
-					with a lower case letter and use camel
-					case
-						example: x
-						    myString
+			name
+				By convention, variable names start
+				with a lower case letter and use camel
+				case
+					example: x
+					    myString
 
 
-				type
-					All variables must have an associated type
+			type
+				All variables must have an associated type
 
-					The type can either be a primitive
-					datatype (like int) or any java class
+				The type can either be a primitive
+				datatype (like int) or any java class
 
-						example: int x;
-						    Greeter g;
+					example: int x;
+					    Greeter g;
 
-			method header
-				<protection> <return type>
-				<name>(<parameters>)
+		method header
+			<protection> <return type> <name>(<parameters>)
+
+			name
+				Like variable names, method names usually
+				start with a lower case letter and use
+				camel case
+
+			parameters
+				Parameters must be given a type and a name
+				like any other variable
+
+				Multiple parameters are separated by ,
+
+				example: (int x, int y, String s)
+
+			return type
+				If a method returns a value, you must
+				declare what kind of value is returned
+
+				If a method does not return a value,
+				then the return type should be void
+
+			Two or more methods in the same class can have
+			the same name as long as they do not have the
+			same parameters. This is known as OVERLOADING
+			methods.
+
+				public int foo()
+				public int foo(String s)
+					foo() is overloaded correctly
+
+
+	main method
+		Each class can (but doesn't have to contain a method called
+		main.
+
+		main is special, it is the only method that is run
+		automatically
+
+			$ java Hello
+			will run the main method inside the class Hello
+
+		The main method must have the following header:
+			public static void main(String[] args)
+
+			static is a special keyword that modifies how a method
+			works.
+
+Creating Objects
+	In order to create an object (instance of a class), you must call a
+	special method known as the CONSTRUCTOR.
+
+	By default, all java classes have at least 1 constructor.
+
+	The name of a constructor is always the name of the class itself.

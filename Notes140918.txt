@@ -1,0 +1,5 @@
+Aim: What are the parts of a java class (part II)?
+
+Do Now: Open up the Greeter class file from yesterday
+
+See notes from yesterday (continued notes)
