@@ -1,0 +1,42 @@
+Aim: What are the Java primitive data types?
+
+Do Now: List the different types of data you have worked with programming in
+other languages.
+
+Strings
+Lists
+Dictionaries
+Floating points
+
+Using variables
+	Creating and using a variable takes two steps,
+	declaration and initialization.
+
+	Declaring a variable states what kind of type it is.
+		example: int x;
+			 String s;
+			 Greeter g;
+
+	Initialization gives a variable an initial value
+		example: x = -24;
+			 s = "Hello";
+			 g = new Greeter();
+
+	Declaration and initialization can be done on a single line
+		example: int x = -24;
+			 String s = "Hello";
+			 Greeting g = new Greeter();
+
+Primitive Data Types
+	The only data types that are not classes
+
+	Type		Name	Size(bits)	Range
+	Integers	Byte	8		[-128,127]
+			short	16		[-2^15, 2^15 - 1]
+			int	32		[-2^31, 2^31 - 1]
+			long	64		[-2^63, 2^63 - 1]
+
+	Floating	float	32		7 digits of precision
+	points		double	64		14 digits of precision
+	character	char	16
+	boolean		boolean	?		True or False
