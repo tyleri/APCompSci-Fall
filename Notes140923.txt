@@ -1,0 +1,49 @@
+Aim: How do we write our own constructors?
+
+Do Now: What is the smallest variable type that could be used to store the
+following values
+
+	1) 5
+	2) -30,000
+	3) 255
+	4) 5,000,000,000
+
+Answers:
+	1) byte
+	2) short
+	3) short
+	4) long
+
+Default Values
+	If a variable is not initialized it is given a default value.
+
+	All numeric primitives are set to 0
+
+	boolean primitives are set to false
+
+	Characters are set to '' (empty/null characters)
+
+	Strings are set to "" (empty/null string)
+
+	All object variables are set to null (nothing)
+
+Constructor
+	Java creates a default constructor for every class.
+
+		The default constructor takes no parameters and will set all
+		instance variables to their default values.
+
+	You can write your own constructors using this header:
+
+		<protection> <class name>(<parameters>)
+
+	Constructors can be private or protected, but are most often public.
+
+	public Greeter() {
+		message = "Hello";
+	}
+
+	public Greeter( String m ) {
+		message = m;
+	}
+

@@ -25,7 +25,7 @@ public class Greeter {
 	public String getReceiver() {
 		return receiver;
 	}
-	
+
 	public int getTimes() {
 		return times;
 	}
