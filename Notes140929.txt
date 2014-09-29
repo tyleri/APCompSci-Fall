@@ -1,0 +1,51 @@
+Aim: How do conditional statements work in Java?
+
+Do Now: Pick a language (not java) and perform the following tasks
+
+	1) Find the product of 4 and 6
+	2) Find the remainder of 105 / 6
+	3) Add 1 to a variable x
+
+Note on operators in java
+	Arithmetic operators
+		+, -, *, /, %
+
+			%: mod operator (remainder)
+
+			Division is dependant on the types used!
+
+				<integer> / <integer> ==> <integer>
+
+				Integer division truncates the value, no
+				rounding occurs.
+
+				All other combinations will result in a
+				floating point type.
+
+				11 / 2 ==> 5
+				11 / 2.0 ==> 5.5
+
+		+=, -=, *=, /=, %=
+			Compound assignment operators
+			x+=y <==> x = x + y
+
+		++, --
+			Increment/decrement operators
+			The same as adding/subtracting 1 to a variable
+
+			int x = 4;
+			x++; // x becomes 5
+
+			x++ means return x and then add 1 to it
+			++x means add 1 to x and then return it
+
+		
+	Comparison operators
+		>, <, >=, <=, ==, !=
+			Return boolean values
+			!= inequality
+
+	Boolean operators
+		&& and
+		|| or
+		!  not
