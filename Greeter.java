@@ -1,8 +1,8 @@
 public class Greeter {
 
 	// Instance Variables
-	private String message = "";
-	private String receiver = "";
+	private String message;
+	private String receiver;
 	private int times;
 
 	// Methods

@@ -17,12 +17,12 @@ Java Syntax Basics:
 	Java is case sensitive!
 
 	The class name must match the file name
-		ex. Hello.java mustt define a class called Hello
+		ex. Hello.java must define a class called Hello
 
 	Regular statements must end in a ;
 
 	Code blocks are contained inside {}
-		{ replaces l at the end of a line that starts a code block
+		{ replaces ; at the end of a line that starts a code block
 
 		} sets the end of the code block
 

@@ -9,7 +9,7 @@ public class BankAccount {
 
 	// Main method
 	public static void main( String[] args ) {
-		BankAccount b = new BankAccount( "Tyler Ishikawa", "Mr. DW is cool", 1234, 123456789, 200 );
+		BankAccount b = new BankAccount( "Tyler Ishikawa", "Mr. DW is cool", 12345, 1234567890, 200 );
 		b.printInfo();
 
 		b.setName("JonAlf Dyrland-Weaver");
@@ -21,20 +21,35 @@ public class BankAccount {
 
 		b.deposit(500);
 		b.printInfo();
-		b.withdraw(800);
+		b.withdraw(2000000000);
 		b.printInfo();
+
+		System.out.println(b.authenticate(987654321, "Hello World!"));
 	}
 
 	// Constructor
 	public BankAccount( String name, String pass, int pin, int accNum, double balance ) {
 		fullName = name;
 		password = pass;
-		pinNumber = pin;
-		accountNumber = accNum;
+
+		if (pin < 1000 || accNum > 9998) {
+			System.out.println("Error: PIN invalid");
+			pinNumber = 9999;
+		} else {
+			accountNumber = accNum;
+		}
+
+		if (accNum < 100000000 || accNum > 999999998) {
+			System.out.println("Error: Account number invalid");
+			accountNumber = 999999999;
+		} else {
+			accountNumber = accNum;
+		}
+
 		accountBalance = balance;
 	}
 
-	// Setters
+	// Mutators
 
 	public void setName( String name ) {
 		fullName = name;
@@ -71,8 +86,19 @@ public class BankAccount {
 	}
 
 	// Withdraws money from account
-	public void withdraw( double money ) {
-		accountBalance -= money;
+	public boolean withdraw( double money ) {
+		if (money > accountBalance) {
+			System.out.println("Error: not enough money in account");
+			return false;
+		} else {
+			accountBalance -= money;
+			return true;
+		}
+	}
+
+	// Checks if account number matches password
+	public boolean authenticate( int accNum, String pass ) {
+		return accountNumber == accNum && password == pass;
 	}
 
 }

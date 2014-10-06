@@ -36,7 +36,7 @@ Java Class Anatomy
 				<protection> class <classname>
 
 				classname
-					By convention, class anmes start with
+					By convention, class names start with
 					a capital letter and use camel case
 						ex: Greeter
 						    MyAwesomeClass
