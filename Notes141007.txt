@@ -1,0 +1,22 @@
+Aim: Refining our classes.
+
+Do Now: Open up your RationalNumber class
+
+
+Notes about the rational number class:
+
+	Passing an object of the same type as a parameter will allow you to access
+	the instance variables and methods of the parameters directly:
+
+		public void multiply( Rational other ) {
+			numerator = numerator * other.numerator;
+			denominator = denominator * other.denominator;
+		}
+
+		The keyword this can be used to represent the object calling the
+		function.
+
+			public void multiply( Rational other ) {
+				this.numerator = this.numerator * other.numerator;
+				this.denominator = other.denominator * other.denominator;
+			}
