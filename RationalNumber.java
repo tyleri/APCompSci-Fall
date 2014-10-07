@@ -66,8 +66,12 @@ public class RationalNumber {
 
 	}
 
+	public String toString() {
+		return numer + "/" + denom;
+	}
+
 	public void reduce() {
-		int gcd = this.gcd();
+		int gcd = gcd();
 		numer /= gcd;
 		denom /= gcd;
 	}
@@ -115,6 +119,7 @@ public class RationalNumber {
 		System.out.printf("b = %f = ", b.floatValue());
 		b.display();
 		System.out.println();
+		System.out.println("b is equal to " + b);
 	}
 
 }
