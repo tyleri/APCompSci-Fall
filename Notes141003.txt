@@ -1,0 +1,42 @@
+Aim: How do the basic java loops work?
+
+Do Now: Go to this website and explore
+	http://docs.oracle.com/javase/7/docs/api/
+	What have you found?
+
+api = application programming interface
+
+
+while loop
+
+	Will run as long as a condition is true
+
+	Syntax:
+		while ( <BOOLEAN> ) {
+			<CODE>
+		}
+
+	Example:
+		int fact = 1;
+		int n = 1;
+		while (n <= 5) {
+			fact *= n;
+			n++;
+		}
+
+for loop
+
+	"Counting loop", will run as long as a condition is true.
+
+	Has built in initialization and update code for a counter:
+
+	Syntax:
+		for (<INIT>; <BOOLEAN>; <UPDATE>) {
+			<CODE>
+		}
+
+	Example:
+		int fact = 1;
+		for (int i = 1; i <= 5; i++) {
+			fact *= 1;
+		}
