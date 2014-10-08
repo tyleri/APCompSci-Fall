@@ -1,0 +1,35 @@
+Aim: What's up with that static thing anyway?
+
+Do Now:
+	1) Open your Rational Number class (any
+	version is fine)
+	2) Add a method called toString, it should
+	return a string representation of the object.
+	3) In main, create a Rational Number object
+	and print out the object variable directly.
+
+
+toString
+	Returns a String representation of an object.
+	Java will automatically call toString whenever
+	you use an object variable in a String context.
+
+	Every class has a toString method (just like a
+	default constructor, and equals). The default
+	toString method will return the class name and
+	the memory location of the object.
+
+	toString should have the following header:
+
+		public String toString()
+
+	If you write your own toString, it will
+	replace the one java creates for you.
+
+		RationalNumber r = new RationalNumber(8, 34);
+		System.out.println(r); // will call r.toString();
+
+static
+
+	Static methods are class methods that are not
+	attached to a specific object.
