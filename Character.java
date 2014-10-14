@@ -1,12 +1,30 @@
 public class Character {
-	
-	int health;
-	int damage;
+		
 	String name;
+	protected int health;
 	int xp;
+	int damage;
+
+	public Character() {
+		xp = 0;
+		name = "Bob";
+}
+
+	public Character(String n) {
+		name = n;
+	}
 
 	public void attack() {
-		System.out.println( "I have attacked" );
+		System.out.println( "I'm attacking!" );
+	}
+
+	public String toString() {
+		String s = name + " ";
+		s += health + " ";
+		s += damage + " ";
+		s += xp + " ";
+
+		return s;
 	}
 
 }

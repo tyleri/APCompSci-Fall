@@ -1,0 +1,29 @@
+Aim: How do we extend classes?
+
+extends
+	Java keyword used to create a subclass
+		example: public class Mage extends Character
+
+	You cannot extend more than one class
+
+	There is no limit to the levels of subclasses that
+	can be made.
+
+	Subclasses inherit all instance variables and methods
+	except for constructors (more on that later).
+
+	private instance variables in a superclass are
+	inherited by subclasses, but cannot be accessed by
+	the subclass.
+
+	The PROTECTED keyword makes instance variables
+	accessible by a class and its subclasses
+
+Method inheritance
+
+	Subclasses can create their own version of inherited
+	methods, this is known as overriding a method (think
+	about toString)
+
+	You can call the superclass's version of a method with
+	the SUPER keyword.
