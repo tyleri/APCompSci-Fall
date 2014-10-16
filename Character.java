@@ -18,6 +18,10 @@ public class Character {
 		System.out.println( "I'm attacking!" );
 	}
 
+	public void attack( Character c ) {
+
+	}
+
 	public String toString() {
 		String s = name + " ";
 		s += health + " ";

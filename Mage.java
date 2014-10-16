@@ -3,6 +3,8 @@ public class Mage extends Character {
 	int energy;
 
 	public Mage() {
+		// name = "Molly";
+		super("Molly");
 		health = 10;
 		damage = 18;
 		energy = 5;

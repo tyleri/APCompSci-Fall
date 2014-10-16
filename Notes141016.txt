@@ -1,0 +1,44 @@
+Aim: 
+
+Method inheritance
+
+	To call a superclass constructor, use super by itself
+		ex. super(); or super("dude"); ....
+
+	Constructors are not inherited, but java automatically
+	assumes the first line of a constructor is a call to
+	the superclass's default constructor, unless you
+	explicitly call a different superclass constructor.
+
+
+Object class
+	All classes are subclasses of Object unless they
+	explicitly extend a different class
+
+	The Object class contains a few basic methods such as:
+		.toString
+		.equals
+		default constructor
+
+Variable type vs. Object type
+
+	Variable type
+		The type declared in your code.
+			String s ==> Variable type is String
+			Object o ==> Variable type is Object
+			Mage m   ==> Variable type is Mage
+
+		Variables can only use methods that are defined in
+		their variable type class.
+
+	Object type
+		The type created in memory.
+		Tied to which constructor was used to create the
+		object.
+
+		String s = new String() ==> Object type is String
+		Object o = new Object() ==> Object type is Object
+		Mage m = new Mage() ==> Object type is Mage
+
+	Variables can refer to any object type that is at or
+	below the variable type in a class hierarchy.
