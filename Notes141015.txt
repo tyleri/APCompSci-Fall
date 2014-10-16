@@ -1,0 +1,20 @@
+Aim: How do we get text input?
+
+
+Text input during your program:
+	Scanner
+		Java class to get input from the terminal or files
+
+		Scanner can = new Scanner( System.in );
+		can.next();
+			This will make your program wait until the
+			user has typed something and hit return
+
+			Returns what the user entered, as a string.
+
+		can.nextInt(), nextDouble() ...
+			Works like next but returns an int, double...
+
+			If the user enters the wrong type, an error
+			occurs
+
