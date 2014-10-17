@@ -1,18 +1,27 @@
 public class Game {
 	public static void main(String[] args) {
 
-		Mage m = new Mage();
-		Warrior w = new Warrior();
+		Mage m = new Mage("Fred");
+		Warrior w = new Warrior("Wilson");
 		Character c = new Character();
 
+		System.out.println("Mage:");
 		System.out.println(m);
-		m.attack();
+		System.out.println("Warrior:");
 		System.out.println(w);
-		w.attack();
+		System.out.println("Character:");
 		System.out.println(c);
-		c.attack();
+		System.out.println();
 
-		Object o = new Warrior();
-		System.out.println(o);
+		while (m.isAlive()) {
+			System.out.println(w.name + " attacks " + m.name);
+			System.out.println(m.name + " takes " + w.attack(m) +
+					" damage");
+			System.out.println(m);
+			System.out.println();
+		}
+		
+		System.out.println(m.name + " has died");
+
 	}
 }

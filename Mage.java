@@ -1,22 +1,11 @@
 public class Mage extends Character {
 
-	int energy;
-
-	public Mage() {
-		// name = "Molly";
-		super("Molly");
-		health = 10;
-		damage = 18;
-		energy = 5;
-	}
-
-	public String toString() {
-		String s = super.toString() + energy;
-		return s;
-}
-
-	public void attack() {
-		System.out.println( "pew pew" );
+	public Mage( String n ) {
+		name = n;
+		life += 20;
+		strength += 3;
+		defense += 2;
+		attRating += 8;
 	}
 
 }

@@ -1,19 +1,11 @@
-public class Warrior {
+public class Warrior extends Character {
 
-	int health;
-	int damage;
-	String name;
-	int xp;
-
-	public Warrior() {
-		health = 20;
-		damage = 8;
-		name = "Bob";
-		xp = 0;
-	}
-
-	public void attack() {
-		System.out.println( "AGHHHHHH" );
+	public Warrior( String n ) {
+		name = n;
+		life += 50;
+		strength += 5;
+		defense += 10;
+		attRating += 5;
 	}
 
 }

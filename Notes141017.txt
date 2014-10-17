@@ -1,0 +1,7 @@
+1) A variable can refer to any object below its type in a
+	class hierarchy.
+
+2) A variable can only use methods declared in its variable
+	type
+
+3) When a method is called, the object type's version is used
