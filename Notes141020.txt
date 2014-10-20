@@ -1,0 +1,8 @@
+Stuyablo
+
+2 different playable character types
+2 different enemy character types
+1 Game driver class
+	enter name
+	select character type
+	begin game interaction
