@@ -9,17 +9,17 @@ public class Character {
 	private int lvl;
 	private int def;
 	private int atk;
-	private Room currRoom;
+	private int location;
 
 	//Constructors
 	public Character(String n) {
-		hp = 100;
+		hp = 50;
 		name = n;
 		exp = 0;
 		lvl = 1;
-		atk = 5;
+		atk = 25;
 		def = 5;
-		currRoom = new Room(1);
+		location = 1;
 	}
 
 	//Accessors
@@ -41,6 +41,7 @@ public class Character {
 		if (chance == 1) {
 		    dmg = 0;
 		}
+/*
 		//Makes it so we dont have cases of negative damage
 		if (dmg > 0) {
 		    enemy.hp -= dmg;
@@ -48,16 +49,16 @@ public class Character {
 		else {
 		    dmg = 0;
 		}
+*/
 		return dmg;
 	}
 
 	public int getLocation() {
-		return currRoom.getLocation();
+		return location;
 	}
 
 	public void nextRoom () {
-		int nextLoc = currRoom.getLocation() + 1;
-		currRoom = new Room(nextLoc);
+		location = location + 1;
 	}
 
     public boolean isAlive() {
