@@ -22,7 +22,7 @@ public class Room {
 		String pChoice = "";
 		int eChoice = -1;
 
-		while (player.getHealth() > 0 && enemy.getHealth() > 0) {
+		while (player.getHP() > 0 && enemy.getHP() > 0) {
 
 			// Player's turn
 			while (pChoice == "") {
@@ -45,7 +45,7 @@ public class Room {
 		}
 
 		// After the battle
-		if (enemy.getHealth() == 0) {
+		if (enemy.getHP() == 0) {
 			System.out.println("You win!");
 			return true;
 		}
