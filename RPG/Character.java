@@ -2,30 +2,72 @@ import java.util.Random;
 
 public class Character {
 	
-	//Instance Variables
-	private int hp;
-	private String name;
-	private int exp;
-	private int lvl;
-	private int def;
-	private int atk;
-	private int location;
+	// Instance Variables
+	protected String name;
+	protected String charType;
+	protected int hp;
+	protected int lvl;
+	protected int def;
+	protected int atk;
+	protected int location;
 
-	//Constructors
+	// Constructors
 	public Character(String n) {
-		hp = 50;
 		name = n;
-		exp = 0;
+		charType = getClass().getName();
+		hp = 50;
 		lvl = 1;
-		atk = 25;
+		atk = 10;
 		def = 5;
 		location = 1;
 	}
 
-	//Accessors
+	// Accessors
+	public String getName() {
+		return name;
+	}
+
 	public int getHP() {
 		return hp;
 	}
+
+	public int getLvl() {
+		return lvl;
+	}
+
+	public int getDef() {
+		return def;
+	}
+
+	public int getAtk() {
+		return atk;
+	}
+
+	public int getLocation() {
+		return location;
+	}
+
+	// Mutators
+	public void setName(String newName) {
+		name = newName;
+	}
+
+	public void setHP(int newHP) {
+		hp = newHP;
+	}
+
+	public void lvlUp() {
+		lvl++;
+	}
+
+	public void setDef(int newDef) {
+		def = newDef;
+	}
+
+	public void setAtk(int newAtk) {
+		atk = newAtk;
+	}
+	
 
 	//Methods
 	public int attack(Character enemy) {
@@ -37,41 +79,37 @@ public class Character {
 			crit = d.nextInt(6) + 5;
 			dmg += crit;
 			}
-		//Makes it so there is a chance to "miss"
+		// Makes it so there is a chance to "miss"
 		if (chance == 1) {
 		    dmg = 0;
 		}
-/*
-		//Makes it so we dont have cases of negative damage
-		if (dmg > 0) {
-		    enemy.hp -= dmg;
+		// Makes it so we dont have cases of negative damage
+		if (dmg < 0) {
+			dmg = 0;		
 		}
-		else {
-		    dmg = 0;
-		}
-*/
+		enemy.hp -= dmg;
+
 		return dmg;
 	}
 
-	public int getLocation() {
-		return location;
-	}
-
 	public void nextRoom () {
-		location = location + 1;
+		location++;
 	}
 
     public boolean isAlive() {
-		return hp > 0;
+		return (hp > 0);
+    }
+
+    public void setZero() {
+    	hp = 0;
     }
 
 	public String toString() {
 		String s = "";
-		s += "Name: " + name + "\n";
+		s += "Name: " + name + " (" + charType + ")" + "\n";
 		s += "Health: " + hp + "\n";
 		s += "Attack: " + atk + "\n";
 		s += "Defense: " + def + "\n";
-		s += "Experience: " + exp + "\n";
 		s += "Level: " + lvl + "\n";
 		return s;
 	}
