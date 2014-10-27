@@ -32,7 +32,7 @@ public class Game {
 		while (input.equals("")){
 			input = scan.nextLine();
 
-			if (input.equalsIgnoreCase("A")) {
+			if (input.equalsIgnoreCase("A")) { // chose human
 				input = "";
 				System.out.println("Pick your job:");
 				System.out.println("(A) Sniper");
@@ -42,17 +42,16 @@ public class Game {
 					input = scan.nextLine();
 
 					if (input.equalsIgnoreCase("A")) {
-						player = new Sniper(name);
+						player = new Sniper(name); // Sniper class
 					}
 					else if (input.equalsIgnoreCase("B")) {
-						player = new Merc(name);
+						player = new Merc(name); //Merc class
 					}
 					else {
 						input = "";
 					}
 				}
-
-			} else if (input.equalsIgnoreCase("B")) {
+			} else if (input.equalsIgnoreCase("B")) { // chose Alien
 				input = "";
 				System.out.println("Pick your race:");
 				System.out.println("(A) Predator");
@@ -62,10 +61,10 @@ public class Game {
 					input = scan.nextLine();
 
 					if (input.equalsIgnoreCase("A")) {
-						player = new Predator(name);
+						player = new Predator(name); // Predator class
 					}
 					else if (input.equalsIgnoreCase("B")) {
-						player = new Martian(name);
+						player = new Martian(name); // Martian class
 					}
 					else {
 						input = "";
@@ -76,8 +75,24 @@ public class Game {
 				input = "";
 			}
 		}
+		//Starting and Moving on to the next room. Maybe we can recycle part of this when we are moving from room to room
 
 		System.out.println(player);
+
+		String choice = "";
+		Scanner forward = new Scanner(System.in);
+		while (choice.equalsIgnoreCase("")) {
+			System.out.println("You find yourself in a room. Ahead of you, you can see ten rooms each illuminated by a dark light. The last thing you can remember is that you were on your ship and were attacked by the enemy. You cannot remember anything past that. Do you wish to move forward?"); 
+			System.out.println("<A> Yes");
+			System.out.println("<B> No");
+			choice = forward.nextLine();
+			if (choice.equalsIgnoreCase("B")) {
+				System.out.print("You sit down and try and remember what happened. Your head starts to hurt and you black out. ");
+				choice = "";
+			}
+		}
+
+			player.nextRoom();
 
 	}
 
@@ -146,4 +161,5 @@ public class Game {
 			return false;
 		}
 	}
+
 }
