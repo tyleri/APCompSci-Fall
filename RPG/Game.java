@@ -10,6 +10,9 @@ public class Game {
 		String name = "";
 		Scanner scan = new Scanner(System.in);
 		Character player = null;
+		Random rand = new Random();
+		String enemy = "";
+		String job = "";
 
 		System.out.println("ALIENHALL Z");
 		System.out.println();
@@ -32,26 +35,29 @@ public class Game {
 		while (input.equals("")){
 			input = scan.nextLine();
 
-			if (input.equalsIgnoreCase("A")) { // chose human
+			if (input.equalsIgnoreCase("A")) {
 				input = "";
 				System.out.println("Pick your job:");
 				System.out.println("(A) Sniper");
-				System.out.println("(B) Merc");
+				System.out.println("(B) Mercenary");
 
 				while (input.equals("")) {
 					input = scan.nextLine();
 
 					if (input.equalsIgnoreCase("A")) {
-						player = new Sniper(name); // Sniper class
+						player = new Sniper(name);
+						job = "Sniper";
 					}
 					else if (input.equalsIgnoreCase("B")) {
-						player = new Merc(name); //Merc class
+						player = new Merc(name);
+						job = "Mercenary";
 					}
 					else {
 						input = "";
 					}
 				}
-			} else if (input.equalsIgnoreCase("B")) { // chose Alien
+
+			} else if (input.equalsIgnoreCase("B")) {
 				input = "";
 				System.out.println("Pick your race:");
 				System.out.println("(A) Predator");
@@ -61,10 +67,12 @@ public class Game {
 					input = scan.nextLine();
 
 					if (input.equalsIgnoreCase("A")) {
-						player = new Predator(name); // Predator class
+						player = new Predator(name);
+						job = "Predator";
 					}
 					else if (input.equalsIgnoreCase("B")) {
-						player = new Martian(name); // Martian class
+						player = new Martian(name);
+						job = "Martian";
 					}
 					else {
 						input = "";
@@ -78,21 +86,88 @@ public class Game {
 		//Starting and Moving on to the next room. Maybe we can recycle part of this when we are moving from room to room
 
 		System.out.println(player);
+		System.out.println("You find yourself in the middle of a room. In front of,\n" + 
+			"you, there are two doors. The left door is blue and the \n" +
+			"right door is red. What do you do?"); 
 
-		String choice = "";
 		Scanner forward = new Scanner(System.in);
-		while (choice.equalsIgnoreCase("")) {
-			System.out.println("You find yourself in a room. Ahead of you, you can see ten rooms each illuminated by a dark light. The last thing you can remember is that you were on your ship and were attacked by the enemy. You cannot remember anything past that. Do you wish to move forward?"); 
-			System.out.println("<A> Yes");
-			System.out.println("<B> No");
+		Scanner forward2 = new Scanner(System.in);
+		String choice = "";
+		String choice2 = "";
+		int x = 0;
+		while (choice.equals("")) {
+			System.out.println("<A> Left door (blue)");
+			System.out.println("<B> Right door (red)");
+			System.out.println("<C> Stay in the room");
 			choice = forward.nextLine();
-			if (choice.equalsIgnoreCase("B")) {
-				System.out.print("You sit down and try and remember what happened. Your head starts to hurt and you black out. ");
-				choice = "";
+			if (choice.equalsIgnoreCase("a")) {
+				if ((job == "Sniper") || (job == "Mercenary")) {
+					if (rand.nextInt(2) == 0) {
+						enemy = "Predator";
+						; 
+					}else {
+						enemy = "Martian";
+					}
+					System.out.println("You open the left door. Behind it is a big room with a\n" + 
+						"door on the other side. Between you and the door is an alien.\n" + 
+						"Your armor which is so light that you did not realize you even had it,\n" +
+						"starts lighting up and your suit's battle mode initates.\n" +
+						"The alien is identified by your suit's scanner as a " + enemy + 
+						". What do you do?");
+					System.out.println("<A> Engage into battle\n" +
+						"<B> Try to sneak to the other side without attracting\n" +
+						"the attention of the " + enemy);
+					Character badguyP = new Predator("P");
+					Character badguyM = new Martian("M");
+					choice = forward.nextLine();
+					if (choice.equalsIgnoreCase("a")) {
+						if (enemy == "Predator") {
+							battle(player,badguyP);
+						}else {
+							battle(player,badguyM);
+						} 
+
+					} else{
+						System.out.println("u suck.");
+					}
+				}
 			}
+			if (choice.equalsIgnoreCase("b")) {
+				System.out.println("What room do you choose?");
+			}
+			if (choice.equalsIgnoreCase("c")) {
+				System.out.println("What room do you choose?");
+			}
+			
+			/*
+			if (choice.equalsIgnoreCase("b")) {
+				while (x == 0) {
+					System.out.println("You sit down and try and remember what happened. \n" +
+						"Your head starts to hurt and you black out. You \n" + 
+						"wake up and find yourself in a room. Ahead of you, you\n" +
+						"can see then rooms each illuminated by a dark light. The \n" +
+						"last thing you can remember is that you were on your ship \n" + 
+						"and were attacked by the enemy. You cannot remember anything \n" +
+						"past that. Do you wish to move forward?");
+					System.out.println("<A> Yes");
+					System.out.println("<B> No");
+					choice2 = forward2.nextLine();
+					if (choice2.equalsIgnoreCase("a")) {
+						x = 1;
+					}
+					else {
+						x = 0;
+						player.nextRoom();
+					}
+				}
+			}
+			else {
+				player.nextRoom();
+			}*/
+
 		}
 
-			player.nextRoom();
+
 
 	}
 
@@ -161,5 +236,8 @@ public class Game {
 			return false;
 		}
 	}
-
 }
+
+
+
+
