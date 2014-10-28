@@ -1,3 +1,4 @@
+// Tyler Ishikawa, Anil Ramsoomye, Chris Liang, Franklin Wang
 import java.util.Scanner;
 import java.util.Random;
 

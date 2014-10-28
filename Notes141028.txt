@@ -1,0 +1,42 @@
+Aim: How do we work with arrays?
+
+Array
+
+	The simplest java data structure
+
+	A contiguous block of memory used to store multiple
+	values of the same type.
+
+	Arrays have a fixed size
+		An array can be re-initialized to a new size, but
+		that will erase all the data stored in it.
+
+	Each element in an array will contain the default value
+	for the array's data type until modified.
+
+	Array syntax basics:
+
+		int[] ray;  //Array declaration
+		    ^
+		    | Denote ray is an array of ints
+
+		ray = new int[10];  //Array initialization
+			       ^
+			       |  Sets the size of the array
+
+		ray.length; //Returns the size of the array
+
+	[]s are used to access values in an array.
+
+		ray[0] = 75;
+
+		ray[i] words, but 0 <= i < ray.length
+
+	Initializer lists
+		
+		Used to create an array with preset values
+
+		char[] cray = { 'a', 'b', 'c' };
+
+		This will create a 3 character array with the
+		values 'a', 'b', and 'c'
