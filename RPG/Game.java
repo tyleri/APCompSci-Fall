@@ -13,7 +13,6 @@ public class Game {
 		Character player = null;
 		Random rand = new Random();
 		String enemy = "";
-		String job = "";
 
 		System.out.println("ALIENHALL Z");
 		System.out.println();
@@ -47,11 +46,9 @@ public class Game {
 
 					if (input.equalsIgnoreCase("A")) {
 						player = new Sniper(name);
-						job = "Sniper";
 					}
 					else if (input.equalsIgnoreCase("B")) {
-						player = new Merc(name);
-						job = "Mercenary";
+						player = new Mercenary(name);
 					}
 					else {
 						input = "";
@@ -69,11 +66,9 @@ public class Game {
 
 					if (input.equalsIgnoreCase("A")) {
 						player = new Predator(name);
-						job = "Predator";
 					}
 					else if (input.equalsIgnoreCase("B")) {
 						player = new Martian(name);
-						job = "Martian";
 					}
 					else {
 						input = "";
@@ -102,7 +97,7 @@ public class Game {
 			System.out.println("<C> Stay in the room");
 			choice = forward.nextLine();
 			if (choice.equalsIgnoreCase("a")) {
-				if ((job == "Sniper") || (job == "Mercenary")) {
+				if ((player.charType == "Sniper") || (player.charType == "Mercenary")) {
 					if (rand.nextInt(2) == 0) {
 						enemy = "Predator";
 						; 
