@@ -52,8 +52,12 @@ public class Character {
 		name = newName;
 	}
 
-	public void setHP(int newHP) {
-		hp = newHP;
+	public void setHP(int sethp) {
+		hp = sethp;
+	}
+
+	public void addHP(int ahp) {
+		hp = hp + ahp;
 	}
 
 	public void lvlUp() {

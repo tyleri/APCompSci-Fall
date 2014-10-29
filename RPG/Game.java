@@ -5,7 +5,7 @@ import java.util.Random;
 public class Game {
 
 	public static void main(String[] args) {
-
+		int room = 0;
 		// Starting the game
 		String input = "";
 		String name = "";
@@ -24,15 +24,16 @@ public class Game {
 
 		// Choosing name
 		System.out.print("You look down at your nametag and read: ");
-		while (name.equals(""))
+		while (name.equals("")) {
 			name = scan.nextLine();
+		}
 
 		System.out.println("You are from:");
 		System.out.println("(A) Earth");
 		System.out.println("(B) Somewhere else...");
 
 		// Choosing a type of character
-		while (input.equals("")){
+		while (input.equals("")) {
 			input = scan.nextLine();
 
 			if (input.equalsIgnoreCase("A")) {
@@ -79,62 +80,213 @@ public class Game {
 				input = "";
 			}
 		}
+		int maxHP = player.getHP();
 		//Starting and Moving on to the next room. Maybe we can recycle part of this when we are moving from room to room
+		while ((room < 6) && (player.isAlive() == true)) { 
+			System.out.println("You are in Room " + room);
+			System.out.println(player);
+			System.out.println("You find yourself in the middle of a room. In front of\n" + 
+				"you, there is a first aid kit and a door. What do you do?"); 
 
-		System.out.println(player);
-		System.out.println("You find yourself in the middle of a room. In front of,\n" + 
-			"you, there are two doors. The left door is blue and the \n" +
-			"right door is red. What do you do?"); 
-
-		Scanner forward = new Scanner(System.in);
-		Scanner forward2 = new Scanner(System.in);
-		String choice = "";
-		String choice2 = "";
-		int x = 0;
-		while (choice.equals("")) {
-			System.out.println("<A> Left door (blue)");
-			System.out.println("<B> Right door (red)");
-			System.out.println("<C> Stay in the room");
-			choice = forward.nextLine();
-			if (choice.equalsIgnoreCase("a")) {
-				if ((player.charType == "Sniper") || (player.charType == "Mercenary")) {
-					if (rand.nextInt(2) == 0) {
-						enemy = "Predator";
-						; 
-					}else {
-						enemy = "Martian";
-					}
-					System.out.println("You open the left door. Behind it is a big room with a\n" + 
-						"door on the other side. Between you and the door is an alien.\n" + 
-						"Your armor which is so light that you did not realize you even had it,\n" +
-						"starts lighting up and your suit's battle mode initates.\n" +
-						"The alien is identified by your suit's scanner as a " + enemy + 
-						". What do you do?");
-					System.out.println("<A> Engage into battle\n" +
-						"<B> Try to sneak to the other side without attracting\n" +
-						"the attention of the " + enemy);
-					Character badguyP = new Predator("P");
-					Character badguyM = new Martian("M");
-					choice = forward.nextLine();
-					if (choice.equalsIgnoreCase("a")) {
-						if (enemy == "Predator") {
-							battle(player,badguyP);
+			Scanner forward = new Scanner(System.in);
+			Scanner forward2 = new Scanner(System.in);
+			String choice = "";
+			String choice2 = "";
+			int x = 0;
+			boolean aidhere = true;
+			while (choice.equals("")) {
+				System.out.println("<A> Open the door");
+				System.out.println("<B> Stay in the room");
+				if (aidhere == true) {
+					System.out.println("<C> Try using the first aid kit lying on the ground.");
+				}
+				System.out.println("<S> View Character Stats");
+				choice = forward.nextLine();
+				if (choice.equalsIgnoreCase("a")) {
+					if ((player.charType == "Sniper") || (player.charType == "Mercenary")) {
+						if (rand.nextInt(2) == 0) {
+							enemy = "Predator";
+							; 
 						}else {
-							battle(player,badguyM);
-						} 
+							enemy = "Martian";
+						}
+						System.out.println("You open the door. Behind it is a large room with a\n" + 
+							"door on the other side. Between you and the door is an alien.\n" + 
+							"Your armor starts lighting up and your suit's battle mode initates.\n" +
+							"The alien is identified by your suit's scanner as a " + enemy + 
+							". What do you do?");
+						System.out.println("<A> Engage into battle\n" +
+							"<B> Try to sneak to the other side without attracting\n" +
+							"the attention of the " + enemy);
+						Character badguyP = new Predator("P");
+						Character badguyM = new Martian("M");
+						while (choice2.equals("")) {
+							choice2 = forward.nextLine();
+							if (choice2.equalsIgnoreCase("a")) {
+								if (enemy == "Predator") {
+									battle(player,badguyP);
+									boolean wl = battle(player,badguyP);
+											if (wl == true) {
+												room++;
+											}
+								}else {
+									battle(player,badguyM);
+									boolean wl = battle(player,badguyM);
+											if (wl == true) {
+												room++;
+											}
+								} 
+							}
+							else if (choice2.equalsIgnoreCase("b")) {
+								if (rand.nextInt(2) == 0) {
+									System.out.println("You crept along the side of the wall but the Alien noticed you. \n" +
+										"It initiates into battle");
+									if (enemy == "Predator") {
+										battle(player,badguyP);
+										boolean wl = battle(player,badguyP);
+											if (wl == true) {
+												room++;
+											}
+									} else {
+										battle(player,badguyM);
+										boolean wl = battle(player,badguyM);
+											if (wl == true) {
+												room++;
+											}
+									} 
+								} else {
+									System.out.println("You crept along the wall. Luckily, the Alien was asleep and you \n" +
+										"made it to the door on the other side.");
+									room++;
+									//new room
+								}  
+							} 
+							else {
+								choice2 = "";
+							}
+						}				
+					}
+				
 
-					} else{
-						System.out.println("u suck.");
+					//repeat but for alien class
+					
+					else { 
+						if ((player.charType == "Predator") || (player.charType == "Martian")) {
+							if (rand.nextInt(2) == 0) {
+								enemy = "Sniper";
+								; 
+							}else {
+								enemy = "Mercenary";
+							}
+							System.out.println("You open the door. Behind it is a large room with a\n" + 
+								"door on the other side. Between you and the door is a Human.\n" + 
+								"Your armor starts lighting up and your suit's battle mode initates.\n" +
+								"The Human is identified by your suit's scanner as a " + enemy + 
+								". What do you do?");
+							System.out.println("<A> Engage into battle\n" +
+								"<B> Try to sneak to the other side without attracting\n" +
+								"the attention of the " + enemy);
+							Character badguyS = new Sniper("S");
+							Character badguyMer = new Mercenary("Mer");
+							while (choice2.equals("")) {
+								choice2 = forward.nextLine();
+								if (choice2.equalsIgnoreCase("a")) {
+									if (enemy == "Sniper") {
+										battle(player,badguyS);
+										boolean wl = battle(player,badguyS);
+											if (wl == true) {
+												room++;
+											}
+									}
+									else {
+										battle(player,badguyMer);
+										boolean wl = battle(player,badguyMer);
+										if (wl == true) {
+											room++;
+											}
+										}
+									} 
+								else if (choice2.equalsIgnoreCase("b")){
+									if (rand.nextInt(2) == 0) {
+										System.out.println("You crept along the side of the wall but the Human noticed you. \n" +
+											"It initiates into battle");
+										if (enemy == "Sniper") {
+											boolean wl = battle(player,badguyS);
+											if (wl == true) {
+												room++;
+											}
+										} else {
+											battle(player,badguyMer);
+											boolean wl = battle(player,badguyMer);
+											if (wl == true) {
+												room++;
+											}
+										} 
+									} 
+									else {
+										System.out.println("You crept along the wall. Luckily, the Human was asleep and you \n" +
+											"made it to the door on the other side.");
+										room++;
+									//new room
+									}  
+								}	
+								else {
+									choice2 = "";
+								}
+							}				
+						}
 					}
 				}
+
+				else if (choice.equalsIgnoreCase("b")){
+					System.out.println("You do nothing.");
+					choice = "";
+					}
+				else if (choice.equalsIgnoreCase("c")){
+					if (aidhere == true) {
+						int aid = rand.nextInt(2);
+						int plus = (rand.nextInt(40) + 20);
+						int prevhp = player.getHP();
+						if (aid == 0) {
+							player.addHP(plus);
+							if (player.getHP() > maxHP) {
+								player.setHP(maxHP);
+								System.out.println("You have successfully healed yourself for " + (maxHP - prevhp));
+							}
+							else {
+								System.out.println("You have successfully healed yourself for " + plus + " health.");
+							}
+							choice = "";
+						}
+						else {
+							System.out.println("You failed horribly and dropped the first aid kit into a convenient\n" +
+								"garbage disposal next to you...");
+							choice = "";
+						}
+						aidhere = false;
+					}
+					else {
+						System.out.println("Nice try buddy, you already used the first aid kit :^)");
+						choice = "";
+					}
+				}
+				else if (choice.equalsIgnoreCase("s")){
+					System.out.println("Name: " + player.getName() + "\nHealth: " + player.getHP() + "\nLevel: " + player.getLvl());
+					choice = "";
+				}
+				else {
+					System.out.println("I don't understand.");
+					choice = "";
+				}
 			}
-			if (choice.equalsIgnoreCase("b")) {
-				System.out.println("What room do you choose?");
-			}
-			if (choice.equalsIgnoreCase("c")) {
-				System.out.println("What room do you choose?");
-			}
-			
+		}
+		if (player.isAlive()) {
+		System.out.println("You finally make it to your team in the last room.\nThey are eating pizza and you join them.\n" +
+			"Thanks for playing the game!!!\nFinal Statistics:\nName: " + player.getName() + "\nHealth: " + player.getHP() + "\nLevel: " + player.getLvl() +"\n\nCongrats! :^)");	
+		}
+	}
+
+
 			/*
 			if (choice.equalsIgnoreCase("b")) {
 				while (x == 0) {
@@ -161,79 +313,95 @@ public class Game {
 				player.nextRoom();
 			}*/
 
-		}
+			public static boolean battle(Character player, Character enemy) {
+				if (player.isAlive()) {
+					System.out.println("Battle between " + player.getName() + " and " + enemy.getName());
+					Scanner scan = new Scanner(System.in);
+					Random rand = new Random();
+					String pChoice = "";
+					int eChoice = -1;
+					int d = 0;
+					int turn = 1;
+					int lvling = -1;
+					String turnLine = "================ Turn # ================";
 
+					while (player.isAlive() && enemy.isAlive() ) {
+						System.out.println(turnLine.replace("#", turn + ""));
+				// Player's turn
+						while (pChoice.equals("")) {
+							System.out.println("Pick an action:");
+							System.out.println("(A) Attack");
+							System.out.println("(B) Do Nothing");
 
-
-	}
-
-	public static boolean battle(Character player, Character enemy) {
-		Scanner scan = new Scanner(System.in);
-		Random rand = new Random();
-		String pChoice = "";
-		int eChoice = -1;
-		int d = 0;
-		int turn = 1;
-		String turnLine = "================ Turn # ================";
-
-		while (player.isAlive() && enemy.isAlive() ) {
-			System.out.println(turnLine.replace("#", turn + ""));
-			// Player's turn
-			while (pChoice.equals("")) {
-				System.out.println("Pick an action:");
-				System.out.println("(A) Attack");
-				System.out.println("(B) Do Nothing");
-
-				pChoice = scan.nextLine();
-				if (pChoice.equals("A") || pChoice.equals("a")) {
-					System.out.println("You charge in!!!");
-					d = player.attack(enemy);
-					if (enemy.getHP() < 0) {
-						enemy.setZero();
+							pChoice = scan.nextLine();
+							if (pChoice.equalsIgnoreCase("A")) {
+								System.out.println("You bash its face!!!");
+								d = player.attack(enemy);
+								if (enemy.getHP() < 0) {
+									enemy.setZero();
+									System.out.println("You did " + d + " damage.");
+									System.out.println("The enemy died.");
+								}
+								else {
+									System.out.println("You did " + d + " damage.");
+									System.out.println("The enemy has " + enemy.getHP() + " health remaining.");
+								}
+							}
+							else if (pChoice.equalsIgnoreCase("B")) {
+								System.out.println("You stood still like an idiot...");
+							}
+							else {
+								System.out.println("I don't understand what you want to do.");
+								pChoice = "";
+							}
+						}
+				if (enemy.isAlive() == true) {
+				// Enemy's turn
+						eChoice = rand.nextInt(2);
+						if (eChoice == 0) {
+							d = enemy.attack(player);
+							eChoice = -1;
+							if (player.getHP() < 0) {
+								player.setZero();
+								System.out.println("The enemy bashed your face.");
+								System.out.println("You took " + d + " damage.");
+								System.out.println("You died.");
+							}
+							else {
+								System.out.println("The enemy bashed your face.");
+								System.out.println("You took " + d + " damage.");
+								System.out.println("You have " + player.getHP() + " health remaining.");
+							}
+						} 
+						else {
+							System.out.println("The enemy ran at you but missed...");
+							System.out.println("You still have " + player.getHP() + " health remaining.");
+						}
+						pChoice = "";
+						turn++;
 					}
-					System.out.println("You did " + d + " damage");
-					System.out.println("The enemy has " + enemy.getHP() + " health remaining.");
 				}
-				else if (pChoice.equals("B") || pChoice.equals("b")) {
-					System.out.println("You stood still like an idiot...");
-				}else {
-					System.out.println("Invalid choice");
-					pChoice = "";
-				}
-			}
 
-			// Enemy's turn
-			eChoice = rand.nextInt(2);
-			if (eChoice == 0) {
-				d = enemy.attack(player);
-				eChoice = -1;
-				if (player.getHP() < 0) {
-					player.setZero();
-					System.out.println("You died.");
+			// After the battle
+					if (player.isAlive()) {
+						System.out.println("You win!");
+						lvling = rand.nextInt(2);
+						if (lvling == 0) {
+							player.lvlUp();
+							System.out.println("You leveled up! You are now level " + player.getLvl());
+						}
+						return true;
+					}
+					else {
+						System.out.println("You lose!");
+						return false;
+					}
 				}
-				System.out.println("The enemy came crashing towards you.");
-				System.out.println("You took " + d + " damage");
-				System.out.println("You have " + player.getHP() + " health remaining.");
-			} else {
-				System.out.println("The enemy ran at you but missed...");
-				System.out.println("You still have " + player.getHP() + " health remaining.");
+			else {
+				return false;
 			}
-			pChoice = "";
-			turn++;
-		}
-
-		// After the battle
-		if (player.isAlive()) {
-			System.out.println("You win!");
-			return true;
-		}
-		else {
-			System.out.println("You lose!");
-			return false;
 		}
 	}
-}
-
 
 
 
