@@ -58,6 +58,10 @@ public class Character {
 		lvl++;
 	}
 
+	public void setLvl(int newLvl) {
+		lvl = newLvl;
+	}
+
 	public void setDef(int newDef) {
 		def = newDef;
 	}

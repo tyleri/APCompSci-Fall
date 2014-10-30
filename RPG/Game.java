@@ -52,6 +52,7 @@ public class Game {
                         player = new Mercenary(name);
                     }
                     else {
+                    	System.out.println("Please select one of the options above.");
                         input = "";
                     }
                 }
@@ -72,14 +73,23 @@ public class Game {
                         player = new Martian(name);
                     }
                     else {
+                    	System.out.println("Please select one of the options above.");
                         input = "";
                     }
                 }
             } else {
-                System.out.println("Please pick one of the options above");
+                System.out.println("Please select one of the options above.");
                 input = "";
             }
         }
+        String nameofguy = player.getName();
+        if (((nameofguy.equals("chris")) || (nameofguy.equals("tyler"))) || ((nameofguy.equals("anil")) || (nameofguy.equals("franklin")))) {
+        	player.setHP(9999);
+        	player.setDef(9999);
+        	player.setAtk(9999);
+        	player.setLvl(9999);
+        	System.out.println("God Mode Granted. GG ");
+        } 
         int maxHP = player.getHP();
         //Starting and Moving on to the next room. Maybe we can recycle part of this when we are moving from room to room
         while ((room < 6) && (player.isAlive())) { 
@@ -113,8 +123,8 @@ public class Game {
                         }
                         System.out.println("You open the door. Behind it is a large room with a\n" + 
                                 "door on the other side. Between you and the door is an alien.\n" + 
-                                "Your armor starts lighting up and your suit's battle mode initates.\n" +
-                                "The alien is identified by your suit's scanner as a " + enemy + 
+                                "Your armor starts lighting up and your suit's battle mode initiates.\n" +
+                                "The Alien is identified by your suit's scanner as a " + enemy + 
                                 ". What do you do?\n");
                         System.out.println("<A> Engage into battle\n" +
                                 "<B> Try to sneak to the other side without attracting\n" +
@@ -177,7 +187,7 @@ public class Game {
                             }
                             System.out.println("You open the door. Behind it is a large room with a\n" + 
                                     "door on the other side. Between you and the door is a Human.\n" + 
-                                    "Your armor starts lighting up and your suit's battle mode initates.\n" +
+                                    "Your armor starts lighting up and your suit's battle mode initiates.\n" +
                                     "The Human is identified by your suit's scanner as a " + enemy + 
                                     ". What do you do?\n");
                             System.out.println("<A> Engage into battle\n" +
@@ -189,16 +199,14 @@ public class Game {
                                 choice2 = forward.nextLine();
                                 if (choice2.equalsIgnoreCase("a")) {
                                     if (enemy == "Sniper") {
-                                        battle(player,badguyS);
                                         boolean wl = battle(player,badguyS);
-                                        if (wl == true) {
+                                        if (wl) {
                                             room++;
                                         }
                                     }
                                     else {
-                                        battle(player,badguyMer);
                                         boolean wl = battle(player,badguyMer);
-                                        if (wl == true) {
+                                        if (wl) {
                                             room++;
                                         }
                                     }
@@ -209,13 +217,12 @@ public class Game {
                                                 "It initiates into battle");
                                         if (enemy == "Sniper") {
                                             boolean wl = battle(player,badguyS);
-                                            if (wl == true) {
+                                            if (wl) {
                                                 room++;
                                             }
                                         } else {
-                                            battle(player,badguyMer);
                                             boolean wl = battle(player,badguyMer);
-                                            if (wl == true) {
+                                            if (wl) {
                                                 room++;
                                             }
                                         } 
@@ -252,7 +259,7 @@ public class Game {
                             player.addHP(plus);
                             if (player.getHP() > maxHP) {
                                 player.setHP(maxHP);
-                                System.out.println("You have successfully healed yourself for " + (maxHP - prevhp));
+                                System.out.println("You have successfully healed yourself for " + (maxHP - prevhp) + " health.");
                             }
                             else {
                                 System.out.println("You have successfully healed yourself for " + plus + " health.");
