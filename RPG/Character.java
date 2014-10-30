@@ -9,7 +9,6 @@ public class Character {
 	protected int lvl;
 	protected int def;
 	protected int atk;
-	protected int location;
 
 	// Constructors
 	public Character(String n) {
@@ -19,7 +18,6 @@ public class Character {
 		lvl = 1;
 		atk = 10;
 		def = 5;
-		location = 1;
 	}
 
 	// Accessors
@@ -41,10 +39,6 @@ public class Character {
 
 	public int getAtk() {
 		return atk;
-	}
-
-	public int getLocation() {
-		return location;
 	}
 
 	// Mutators
@@ -94,10 +88,6 @@ public class Character {
 		enemy.hp -= dmg;
 
 		return dmg;
-	}
-
-	public void nextRoom () {
-		location++;
 	}
 
     public boolean isAlive() {
