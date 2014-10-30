@@ -81,6 +81,60 @@ public class Stat {
 	return max;
     }
 
+    public int freq(int n) {
+	    int freq = 0;
+	    for (int count = 0; count < data.length; count++)
+		    if (data[count] == n)
+			    freq++;
+	    return freq;
+    }
+
+    public boolean evenBalance() {
+	    int sum1 = 0, sum2 = 0;
+	    for (int count = 0; count < data.length / 2; count++) {
+		    sum1 += data[count];
+		    sum2 += data[data.length - 1 - count];
+	    }
+	    return sum1 == sum2;
+    }
+
+    public int mode() {
+	    int mode = data[0];
+	    int freq = freq(data[0]);
+	    for (int count = 1; count < data.length; count++)
+		    if ( freq(data[count]) > freq ) {
+			    mode = data[count];
+			    freq = freq(data[count]);
+		    }
+	    return mode;
+    }
+
+	public int[] mode2() {
+		int[] modes = { mode() };
+		int freq = freq( modes[0] );
+		for (int count = 0; count < data.length; count++)
+			if (Arrays.binarySearch(modes, data[count]) < 0)
+				if (freq(data[count]) == freq) {
+					modes = Arrays.copyOf(modes, modes.length+1);
+					modes[modes.length - 1] = data[count];
+					Arrays.sort(modes);
+				}
+		return modes;
+	}
+
+	public boolean evenBalance2() {
+		if (data.length % 2 == 0)
+			return evenBalance();
+		else {
+			int sum1 = 0, sum2 = 0, mid = data[data.length / 2];
+			for (int count = 0; count < data.length / 2; count++) {
+				sum1 += data[count];
+				sum2 += data[data.length - 1 - count];
+			}
+			return sum1 + mid == sum2 || sum1 == (sum2 + mid);
+		}
+	}
+
     public static void main( String[] args ) {
 
 	int n;
@@ -98,6 +152,9 @@ public class Stat {
 	System.out.println("Average: " + s.calcAvg() );
 	System.out.println("Min: " + s.findMin() );
 	System.out.println("Max: " + s.findMax() );
-
+	System.out.println("evenBalance: " + s.evenBalance() );
+	System.out.println("Mode: " + s.mode() );
+	System.out.println("Mode2: " + Arrays.toString(s.mode2());
+	System.out.println("evenBalance2: " + s.evenBalance2() );
     }
 }

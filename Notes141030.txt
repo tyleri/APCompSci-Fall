@@ -1,0 +1,18 @@
+Aim: How can we work with Arrays?
+
+Do Now: Bring up your code for the findMin method from
+	yesterday's assignment.
+
+
+	public int findMin() {
+
+		int guess = data[0];
+
+		for (int i = 1; i < data.length; i++)
+			if ( data[i] < guess )
+				guess = data[i];
+
+		return guess;
+	}
+
+Programming Sucks
