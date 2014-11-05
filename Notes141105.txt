@@ -1,0 +1,23 @@
+Aim: How can we write our improved array class?
+
+Do Now: Write down the instance variables and some of the
+	methods you would include in your SuperArray class.
+
+	Instance Variables:
+		Object[] data
+		int size
+
+	Methods:
+		resize(): create a new Object array and copy old values over
+		insert()
+		append()
+		remove()
+		merge(SuperArray b): combine b to the calling SuperArray
+		default constructor
+		add(Object o): appends o to the end of used space
+		get(int i): return the value at i
+		toString()
+		remove(int i): remove the element at i
+		add(Object o, int i): add o to position i
+		size()
+		replace(Object o, int i): put o at position i
