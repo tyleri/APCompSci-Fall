@@ -1,0 +1,22 @@
+Aim: How does type casting work?
+
+Do Now: Create a java program with a main method with a
+		variable for each primitive type (except for
+		boolean).
+
+Type Casting
+	Using a value as a type other than its declared type.
+
+	All primitives (except for booleans) can be type cast
+	to one of the other primitive types.
+
+	Type casting cannot change a variable
+
+	syntax:
+		(<NEW TYPE>)<VALUE/VARIABLE>
+		(double)4
+		(int)13.8
+		(short)x
+
+	An object variable can be typecast to its object type or
+	any type above it in a class hierarchy.
