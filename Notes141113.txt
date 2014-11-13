@@ -1,0 +1,37 @@
+ArrayList Methods:
+	int size()
+
+	boolean add( Object o )
+		Adds o to the end of the ArrayList
+
+		Returns true
+
+	void add( int i, Object o )
+		Adds o to position i in the ArrayList
+
+		All elements at position i or later are
+		shifted to the right
+
+		0 <= i <= size()
+
+	Object get( int i )
+		Returns the element at position i
+
+		0 <= i < size()
+
+	Object set( int i, Object o )
+		Replaces the element at position i with o
+
+		Returns the element that was at position i
+
+		0 <= i < size()
+
+	Object remove( int i )
+		"Removes" the element at position i
+
+		All elements after position i are shifted to
+		the left
+
+		Returns the element tha was removed
+
+		0 <= i < size()
