@@ -1,0 +1,29 @@
+Aim: How can we make arrays better?
+
+Do Now: Write down some limitations of arrays.
+
+- Fixed size
+- Can only hold 1 type
+- Cannot have negative negative indices
+- Cannot just append a value
+- Cannot get the index of a given value
+
+SuperArray
+Instance var(s): Object[]
+
+We can make an "improved" array by making a class that adds
+this functionality. How would this "Super Array" work?
+
+SuperArray:
+	Instance Variables?
+		Object[] data
+		int size
+
+	Methods
+		default constructor
+		size based constructor
+		copy
+		insert: add anywhere
+		append: add at the end
+		concatenate
+		resize
