@@ -4,7 +4,7 @@ Do Now: Write down some limitations of arrays.
 
 - Fixed size
 - Can only hold 1 type
-- Cannot have negative negative indices
+- Cannot have negative indices
 - Cannot just append a value
 - Cannot get the index of a given value
 

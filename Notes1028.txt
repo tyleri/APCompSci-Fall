@@ -30,7 +30,7 @@ Array
 
 		ray[0] = 75;
 
-		ray[i] words, but 0 <= i < ray.length
+		ray[i] works, but 0 <= i < ray.length
 
 	Initializer lists
 		
