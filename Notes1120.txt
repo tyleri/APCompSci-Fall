@@ -1,0 +1,32 @@
+Test Review
+
+Array:
+	- Set length
+	- Single type
+	access: []
+	not justified
+	primitive structure
+
+ArrayList
+	- resizable
+	- contain any type
+	- access: methods
+	- can remove spaces
+	- left justified
+	- class
+
+
+Example of primitive:
+
+public class Foo<E> {
+
+	E x;
+
+	public void bar(E t) {
+	}
+
+}
+
+Object[] o = new Object[10];
+E[] something = (E[])new Object[10];
+new E[10]; <- illegal
