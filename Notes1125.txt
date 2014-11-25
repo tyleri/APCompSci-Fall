@@ -1,0 +1,12 @@
+Aim: How can we use 2-dimensional arrays?
+
+Do Now: Write a java program that does the following:
+	(you only need a main method)
+
+	Create a 4x3 2-d array of ints that contain the
+	numbers 0-11 in order without the use of an extra
+	(non for loop related) counter variable.
+
+	Print out the array to test out your work.
+
+New project: Word Search
