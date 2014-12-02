@@ -1,0 +1,25 @@
+Aim: How can we keep ArrayLists in order?
+
+
+Do Now: Consider a data structure that words like an
+		ArrayList but is always in sorted order.
+		Assume this class has a single instance
+		variable, an ArrayList. What must be
+		different between this data structure and a
+		regular ArrayList?
+		
+
+- add(value) needs to maintain order
+- set needs to maintain order
+	- don't have a set method
+- add(index, value) is not usable
+- values need to be compareable
+
+Write OrderedArrayList, a class that has one
+instance variable:
+
+	private ArrayList<Integer> data;
+
+It should contain methods to insert, remove and
+retrieve ints from data while ensuring that data is
+always sorted.
