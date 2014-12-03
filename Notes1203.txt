@@ -1,0 +1,17 @@
+Boolean Short Circuiting
+
+	Java will evaluate compound boolean statements
+	left to right.
+
+	Java will stop evaluating compound boolean
+	statements once there is sufficient information
+	to get the value.
+
+	example
+		a > b && c == d
+			If a > b is false, then c == d will not
+			be evaluated
+
+		x != y || w < z
+			If x != y is true, then w < z will not
+			be evaluated

@@ -9,17 +9,20 @@ public class OrderedArrayList {
 	}
 
 	public void add(int num) {
-		if (data.size() == 0)
-			data.add(num);
-		else {
-			for (int c = 0; c < data.size(); c++)
-				if (data.get(c) > num) {
-					data.add(c, num);
-					return;
-				}
+		for (int c = 0; c < data.size(); c++)
+			if (data.get(c) > num) {
+				data.add(c, num);
+				return;
+			}
 
-			data.add(num);
-		}
+		data.add(num);
+
+		/* Mr. DW's solution
+		 * int i = 0;
+		 * while (i < data.size() && value > data.get() )
+		 *     i++;
+		 * data.add( i, value );
+		 */
 	}
 
 	public int remove(int index) {
@@ -38,7 +41,8 @@ public class OrderedArrayList {
 		OrderedArrayList o = new OrderedArrayList();
 
 		o.add(5);
-		o.add(6);
+		o.add(8);
+		o.add(9);
 		o.add(2);
 		o.add(-5);
 		o.add(10);
