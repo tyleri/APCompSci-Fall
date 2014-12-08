@@ -1,0 +1,23 @@
+Aim: What are Interfaces?
+
+
+Interfaces
+
+	A java interface allows multiple classes to share
+	the same method behavior.
+	
+	Interfaces can only contain abstract methods
+	and constants.
+
+	Interfaces can be variable types but cannot
+	be object types.
+
+Comparable
+	java interface that contains a single method
+
+	public int compareTo( Object o );
+
+	a.compareTo(b) returns:
+		0 if a == b
+		some negative number if a < b
+		some positive number if a > b
