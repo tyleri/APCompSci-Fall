@@ -37,6 +37,13 @@ public class OrderedArrayList {
 		return data.toString();
 	}
 
+	private int search(Comparable element) {
+		for (int i = 0; i < data.size(); i++)
+			if (data.get(i).compareTo(element) == 0)
+				return i;
+		return -1;
+	}
+
 	public static void main(String[] args) {
 		//Testing with integers
 		OrderedArrayList o = new OrderedArrayList();
@@ -74,6 +81,11 @@ public class OrderedArrayList {
 		o.add("cat");
 		o.add("frogs");
 		System.out.println(o);
+		System.out.println();
+
+		System.out.println("\"apple\" is at index " + o.search("apple"));
+		System.out.println("\"quarter\" is at index " + o.search("quarter"));
+		System.out.println("\"cat\" is at index " + o.search("cat"));
 		System.out.println();
 
 		System.out.println("The element at index 5 is " + o.get(5));

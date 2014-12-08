@@ -1,0 +1,7 @@
+linear search - look at every element and
+compare to value you're searching for
+
+searching - more efficient to split into
+two and find which part the value is in
+
+binary search
