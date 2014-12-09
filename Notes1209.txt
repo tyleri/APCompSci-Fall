@@ -1,0 +1,4 @@
+Aim: How does the binary search work?
+
+Do Now: Write a new version of the search function,
+		but this time, use the binary search algorithm.

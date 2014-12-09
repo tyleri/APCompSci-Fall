@@ -37,11 +37,30 @@ public class OrderedArrayList {
 		return data.toString();
 	}
 
-	private int search(Comparable element) {
+	public int linearSearch(Comparable element) {
 		for (int i = 0; i < data.size(); i++)
 			if (data.get(i).compareTo(element) == 0)
 				return i;
 		return -1;
+	}
+
+	public int binarySearch(Comparable element) {
+		int start = 0, middle = data.size() / 2, end = data.size();
+		int comp = data.get(middle).compareTo(element);
+
+		while (comp != 0) {
+			if (start == end)
+				return -1;
+			else if (comp > 0)
+				end = middle - 1;
+			else if (comp < 0)
+				start = middle + 1;
+			middle = (end + start) / 2;
+
+			comp = data.get(middle).compareTo(element);
+		}
+
+		return middle;
 	}
 
 	public static void main(String[] args) {
@@ -83,9 +102,10 @@ public class OrderedArrayList {
 		System.out.println(o);
 		System.out.println();
 
-		System.out.println("\"apple\" is at index " + o.search("apple"));
-		System.out.println("\"quarter\" is at index " + o.search("quarter"));
-		System.out.println("\"cat\" is at index " + o.search("cat"));
+		System.out.println("\"apple\" is at index " + o.binarySearch("apple"));
+		System.out.println("\"quarter\" is at index " + o.binarySearch("quarter"));
+		System.out.println("\"cat\" is at index " + o.binarySearch("cat"));
+		System.out.println("\"broccoli\" is at index " + o.binarySearch("broccoli"));
 		System.out.println();
 
 		System.out.println("The element at index 5 is " + o.get(5));
@@ -97,6 +117,7 @@ public class OrderedArrayList {
 		System.out.println("Removing element at index 3: " + o.remove(3));
 		System.out.println("Removing element at index 0: " + o.remove(0));
 		System.out.println(o);
+		System.out.println();
 	}
 
 }
