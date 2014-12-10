@@ -1,0 +1,50 @@
+Aim: How can we analyze algorithm efficiency?
+
+Do Now: what are some ways you could measure how
+		efficient an algorithm is? Are there any
+		possible issues with these measures?
+
+
+Efficiency
+	Algorithm efficiency cafn refer to space
+	efficiency or time efficiency. Often the two
+	are inversely related (but not always).
+
+	When discussing efficiency, it's important to
+	be aware of the difference between the
+	efficiency of an algorithm vs the power of the
+	computer on which is it being run.
+
+
+	Big-O Notation
+		Used to formalize the analysis of algorithms.
+
+		Provides an estimated upper bound for the
+		amount of "work" done. It is not an exact
+		measure.
+
+		Refers to the efficiency of an algorithm
+		as the amount of data (n) increases.
+
+		Example:
+			for (int i=0; i < a.length; i++)
+				a[i] = a[i] * 10;
+
+			Big-O value of this loop?
+				The loop increases at the same
+				rate as n:
+					O(n)
+
+			for (int i=0; i < a.length; i++)
+				for (int j=0; j < a.length; j++)
+					a[j] = a[j] + i;
+
+			Big-O value of this loop?
+				Every single increase in n results
+				in n more passes:
+					O(n * n) = O(n^2)
+
+			for (int i=0; i < a.length; i++)
+				a[i] = i;
+			for (int j=0; j < a.length; j++)
+				a[j] = a[j] + 10;
