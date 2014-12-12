@@ -1,0 +1,49 @@
+Aim: How can we find Big-O values?
+
+Do now: What are the Big-O values for the following
+		code segments?
+
+		1)	for (int i=0; i < a.length; i++)
+				a[i] = i;
+			for (int j=0; j < a.length; j++)
+				a[j] = a[j] + 10;
+
+		2)	for (int i=0; i < 10; i++)
+				a[i] = i;
+			for (int j=0; j < a.length; j++)
+				a[j] = a[j] + 5;
+
+		3)	for (int i=a.length; i >= 1; i/= 2)
+				a[i] = a[i] * i;
+
+Answers:
+	1) O(n)
+		Loop 1: O(n)
+		Loop 2: O(n)
+	2) O(n)
+		Loop 1: O(1) <-- constant time
+		Loop 2: O(n)
+	3) O(log(2) n)
+
+
+Tips for evaluating Big-O values
+
+	Ignore any step that is independent of the
+	size of the data.
+
+		These are called constant time operations.
+	
+	When evaluating nested statements, find the
+	Big-O values of each individual statement and
+	then multiply them.
+
+	When evaluating consecutive (non-nested)
+	statements, find the Big-O value of each, then
+	select the Big-O value that is the largest.
+
+		example:
+		for (int i=0; i < a.length; i++)
+			for (int j=0; j < a.length; j++)
+				a[j] = a[j] + i;
+		for (int i=0; i < a.length; i++)
+			a[i] = i;
