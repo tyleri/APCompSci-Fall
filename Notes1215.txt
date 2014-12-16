@@ -1,0 +1,26 @@
+Aim: What are the common Big-O values?
+
+Do Now: What are the Big-O Values for the following?
+
+	1)	for (int i=0; i < a.length; i++)
+			a[i] = i;
+		for (int j=1; j < a.length; j*=2)
+			a[j] = a[j] * 10;
+
+	2)	public int foo(int k) {
+			if (k <= 1) return 1;
+			return foo(k - 1) + foo(k - 2);
+		}
+
+	3)	ArrayList goo = new ArrayList();
+		for (int i=0; i < 50; i++)
+			goo.add(0, Math.random() );
+
+Answers:
+	1) O(n)
+		Loop 1: O(n)
+		Loop 2: O(log n)
+	2) O(2^n)
+	3) O(n)
+		for loop: O(1)
+		add: O(n)
