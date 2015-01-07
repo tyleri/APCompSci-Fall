@@ -134,7 +134,17 @@ public class Sort {
       jdyrlandweaver
       ====================*/
 	public long bubble() {
-		return -1;
+		long startTime = System.currentTimeMillis();
+
+		for (int i = size(); i > 1; i--)
+			for (int j = 1; j < i; j++) {
+				comps++;
+				if (list[j-1] > list[j])
+					swap(j-1, j);
+			}
+
+		long endTime = System.currentTimeMillis();
+		return endTime - startTime;
 	}
 
     /*======== public long selection()) ==========
@@ -152,7 +162,21 @@ public class Sort {
       jdyrlandweaver
       ====================*/
 	public long selection() {
-		return -1;
+		long startTime = System.currentTimeMillis();
+
+		for (int i = 0; i < size()-1; i++) {
+			int min = i;
+
+			for (int j = i; j < size(); j++) {
+				comps++;
+				if (list[j] < list[min])
+					min = j;
+			}
+			swap(i, min);
+		}
+
+		long endTime = System.currentTimeMillis();
+		return endTime - startTime;
 	}
 
     /*======== public long insertion()) ==========
@@ -176,7 +200,7 @@ public class Sort {
 		long startTime = System.currentTimeMillis();
 		int shifts = 0;
 
-		for (int i = 1; i < list.length; i++) {
+		for (int i = 1; i < size(); i++) {
 			int num = list[i], currIndex = i-1;
 			while (currIndex >= 0 && ++comps > 0 & list[currIndex] > num) {
 				list[currIndex+1] = list[currIndex];
@@ -195,7 +219,7 @@ public class Sort {
 	public static void main(String[] args) {
 
 		//change this value to get more significant time results
-		int x = 100;
+		int x = 10000;
 
 		Sort b = new Sort(x);
 		Sort s = new Sort(x);
