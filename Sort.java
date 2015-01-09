@@ -135,13 +135,19 @@ public class Sort {
       ====================*/
 	public long bubble() {
 		long startTime = System.currentTimeMillis();
+		int end = size();
 
-		for (int i = size(); i > 1; i--)
-			for (int j = 1; j < i; j++) {
+		while (end > 0) {
+			int newEnd = 0;
+			for (int j = 1; j < end; j++) {
 				comps++;
-				if (list[j-1] > list[j])
+				if (list[j-1] > list[j]) {
 					swap(j-1, j);
+					newEnd = j;
+				}
 			}
+			end = newEnd;
+		}
 
 		long endTime = System.currentTimeMillis();
 		return endTime - startTime;
@@ -202,14 +208,14 @@ public class Sort {
 
 		for (int i = 1; i < size(); i++) {
 			int num = list[i], currIndex = i-1;
-			while (currIndex >= 0 && ++comps > 0 & list[currIndex] > num) {
+			while (currIndex >= 0 && list[currIndex] > num & ++comps>0) {
 				list[currIndex+1] = list[currIndex];
+				shifts++;
 				currIndex--;
-				if (++shifts % 3 == 0)
-					swaps++;
 			}
 			list[currIndex+1] = num;
 		}
+		swaps = shifts / 3;
 
 		long endTime = System.currentTimeMillis();
 		return endTime - startTime;
